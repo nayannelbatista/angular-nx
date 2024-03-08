@@ -68,5 +68,27 @@
         "staticFilePath": "dist/myngapp/browser"
       }
     }
+  },
+  "storybook": {
+    "executor": "@storybook/angular:start-storybook",
+    "options": {
+      "configDir": "modules/shared/design-system/.storybook",
+      "browserTarget": "design-system:build-storybook"
+    }
+  },
+  "build-storybook": {
+    "executor": "@storybook/angular:build-storybook",
+    "outputs": ["{options.outputPath}"],
+    "options": {
+      "outputDir": "dist/storybook/design-system",
+      "configDir": "modules/shared/design-system/.storybook",
+      "browserTarget": "design-system:build-storybook",
+      "styles": [".storybook/globals.css"],
+      "stylePreprocessorOptions": {
+        "includePaths": [
+          "modules/shared/design-system/src/lib"
+        ]
+      }
+    }
   }
 }
